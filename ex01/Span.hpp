@@ -6,7 +6,7 @@
 /*   By: sadoming <sadoming@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 12:22:54 by sadoming          #+#    #+#             */
-/*   Updated: 2025/08/12 14:26:08 by sadoming         ###   ########.fr       */
+/*   Updated: 2025/08/12 16:10:26 by sadoming         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class Span
 		template<typename T>
 		void	addRange(T &arr)
 		{
-			if (_actualSize + arr.getActualSize() > _n)
+			if (arr.getActualSize() > _n - _actualSize)
 				throw FullException();
 			_numbers.insert(_numbers.end(), arr.getActualNumbers().begin(), arr.getActualNumbers().end());
 			_actualSize += arr.getActualSize();
