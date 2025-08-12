@@ -6,7 +6,7 @@
 /*   By: sadoming <sadoming@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 17:59:45 by sadoming          #+#    #+#             */
-/*   Updated: 2025/08/11 20:17:16 by sadoming         ###   ########.fr       */
+/*   Updated: 2025/08/12 14:21:21 by sadoming         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ Span &Span::operator=(const Span &other) {
 
 /* ----- */
 unsigned int Span::getActualSize() const { return (_actualSize); }
+std::vector<int> Span::getActualNumbers() const { return _numbers; }
 /* ----- */
 
 /* Exceptions thowers */
@@ -40,20 +41,20 @@ const char	*Span::FullException::what() const throw()
 	return ("Span is full, cannot add more numbers");
 }
 
-const char	*Span::NotEnoughNumbersException ::what() const throw()
+const char	*Span::NotEnoughNumbersException::what() const throw()
 {
 	return ("Span does not have enough numbers to calculate the span");
 }
 /* ----- */
 
 /* Functions	*/
-void Span::addNumber(int number) {
+void Span::addNumber(int number)
+{
 	if (_actualSize >= _n)
 		throw FullException();
 	_numbers.push_back(number);
 	_actualSize++;
 }
-
 
 int Span::shortestSpan() const {
 	if (_actualSize < 2)

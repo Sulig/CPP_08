@@ -6,7 +6,7 @@
 /*   By: sadoming <sadoming@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 12:22:54 by sadoming          #+#    #+#             */
-/*   Updated: 2025/08/11 20:00:53 by sadoming         ###   ########.fr       */
+/*   Updated: 2025/08/12 14:26:08 by sadoming         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,22 @@ class Span
 		Span &operator=(const Span &other);
 
 		unsigned int getActualSize() const;
+		std::vector<int> getActualNumbers() const;
 
 		void addNumber(int number);
 		int shortestSpan() const;
 		int longestSpan() const;
 
+		template<typename T>
+		void	addRange(T &arr)
+		{
+			if (_actualSize + arr.getActualSize() > _n)
+				throw FullException();
+			_numbers.insert(_numbers.end(), arr.getActualNumbers().begin(), arr.getActualNumbers().end());
+			_actualSize += arr.getActualSize();
+		}
+
+		/**/
 		class FullException : public std::exception
 		{
 			public:
