@@ -6,7 +6,7 @@
 /*   By: sadoming <sadoming@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 17:56:08 by sadoming          #+#    #+#             */
-/*   Updated: 2025/08/12 15:47:21 by sadoming         ###   ########.fr       */
+/*   Updated: 2025/08/13 16:41:29 by sadoming         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,15 @@ int main()
 	std::cout << "Testing with more than 10000 numbers:" << std::endl;
 	Span sp4 = Span(10000);
 	for (int i = 0; i < 10000; i++)
-		sp4.addNumber(rand() % 10000);
+		sp4.addNumber(rand() % 100000);
+
+	/*
+	{
+		for (unsigned int num = 0; num < sp4.getActualSize(); num++)
+			std::cout << sp4.getActualNumbers()[num] << " ";
+		std::cout << std::endl;
+	}
+	*/
 	std::cout << "Shortest span: " << sp4.shortestSpan() << std::endl;
 	std::cout << "Longest span: " << sp4.longestSpan() << std::endl;
 
